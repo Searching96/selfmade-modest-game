@@ -23,6 +23,8 @@ void CMario::Update(DWORD dt)
 		{
 			x = (float)(BackBufferWidth - MARIO_WIDTH);
 		}
+
+
 	}
 }
 

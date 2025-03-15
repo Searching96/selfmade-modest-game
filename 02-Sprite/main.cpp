@@ -26,6 +26,7 @@
 
 
 #include "Mario.h"
+#include "Enemy.h"
 
 
 #define WINDOW_CLASS_NAME L"SampleWindow"
@@ -39,18 +40,27 @@
 #define ID_TEX_MARIO 0
 #define ID_TEX_ENEMY 10
 #define ID_TEX_MISC 20
+#define ID_TEX_ENEMY_REVERSED 30
 
 #define TEXTURES_DIR L"textures"
-#define TEXTURE_PATH_MARIO TEXTURES_DIR "\\mario.png"
+#define TEXTURE_PATH_MARIO TEXTURES_DIR "\\mario_transparent.png"
 #define TEXTURE_PATH_MISC TEXTURES_DIR "\\misc_transparent.png"
-#define TEXTURE_PATH_ENEMIES TEXTURES_DIR "\\enemies.png"
+#define TEXTURE_PATH_ENEMIES TEXTURES_DIR "\\enemies_transparent.png"
+#define TEXTURE_PATH_ENEMIES_REVERSED TEXTURES_DIR "\\enemies_transparent_reversed.png"
 
 CMario *mario;
 #define MARIO_START_X 10.0f
 #define MARIO_START_Y 130.0f
 #define MARIO_START_VX 0.1f
 
+CEnemy* enemy;
+#define ENEMY_START_X 10.0f
+#define ENEMY_START_Y 150.0f
+#define ENEMY_START_VX 0.1f
+
 CBrick *brick;
+
+
 
 LRESULT CALLBACK WinProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 {
@@ -76,6 +86,8 @@ void LoadResources()
 	textures->Add(ID_TEX_MARIO, TEXTURE_PATH_MARIO);
 	//textures->Add(ID_ENEMY_TEXTURE, TEXTURE_PATH_ENEMIES, D3DCOLOR_XRGB(156, 219, 239));
 	textures->Add(ID_TEX_MISC, TEXTURE_PATH_MISC);
+	textures->Add(ID_TEX_ENEMY, TEXTURE_PATH_ENEMIES);
+	textures->Add(ID_TEX_ENEMY_REVERSED, TEXTURE_PATH_ENEMIES_REVERSED);
 
 
 	CSprites * sprites = CSprites::GetInstance();
@@ -112,10 +124,10 @@ void LoadResources()
 
 
 	LPTEXTURE texMisc = textures->Get(ID_TEX_MISC);
-	sprites->Add(20001, 300, 117, 317, 133, texMisc);
-	sprites->Add(20002, 318, 117, 335, 133, texMisc);
-	sprites->Add(20003, 336, 117, 353, 133, texMisc);
-	sprites->Add(20004, 354, 117, 371, 133, texMisc);
+	sprites->Add(20001, 300, 135, 317, 150, texMisc);
+	sprites->Add(20002, 318, 135, 335, 150, texMisc);
+	sprites->Add(20003, 336, 135, 353, 150, texMisc);
+	sprites->Add(20004, 354, 135, 371, 150, texMisc);
 
 	ani = new CAnimation(100);
 	ani->Add(20001,1000);
@@ -125,8 +137,28 @@ void LoadResources()
 	animations->Add(510, ani);
 	
 	
+	LPTEXTURE texEnemy = textures->Get(ID_TEX_ENEMY);
+	sprites->Add(30001, 6, 131, 23, 157, texEnemy);
+	sprites->Add(30002, 28, 129, 45, 157, texEnemy);
+	
+	ani = new CAnimation(100);
+	ani->Add(30001);
+	ani->Add(30002);
+	animations->Add(520, ani);
+	
+	LPTEXTURE texEnemyReversed = textures->Get(ID_TEX_ENEMY_REVERSED);
+	sprites->Add(30003, 456, 131, 473, 157, texEnemyReversed);
+	sprites->Add(30004, 434, 129, 451, 157, texEnemyReversed);
+
+	ani = new CAnimation(100);
+	ani->Add(30003);
+	ani->Add(30004);
+	animations->Add(521, ani);
+
 	mario = new CMario(MARIO_START_X, MARIO_START_Y, MARIO_START_VX);
+	enemy = new CEnemy(ENEMY_START_X, ENEMY_START_Y, ENEMY_START_VX);
 	brick = new CBrick(100.0f, 100.0f);
+
 }
 
 /*
@@ -136,6 +168,7 @@ void LoadResources()
 void Update(DWORD dt)
 {
 	mario->Update(dt);
+	enemy->Update(dt);
 }
 
 void Render()
@@ -160,6 +193,7 @@ void Render()
 
 		brick->Render();
 		mario->Render();
+		enemy->Render();
 
 		// Uncomment this line to see how to draw a porttion of a texture  
 		//g->Draw(10, 10, texMisc, 300, 117, 316, 133);
