@@ -73,7 +73,7 @@ CEnemy* enemy;
 #define ENEMY1_START_Y 20.0f
 #define ENEMY2_START_X 20.0f
 #define ENEMY2_START_Y 40.0f
-#define ENEMY_START_VX 0.1f
+#define ENEMY_BASE_SPEED 0.1f
 #define ENEMY_START_VY 0.1f
 
 LPTEXTURE texPlayer = NULL;
@@ -185,7 +185,7 @@ void LoadResources()
 		int health = rand() % 3 + 1;
 		LPTEXTURE randomizedTex = listEnemyTexture[(health - 1) * 4 + dir];
 
-		game->AddObject(new CEnemy(x, y, ENEMY_START_VX, ENEMY_START_VY, randomizedTex,
+		game->AddObject(new CEnemy(x, y, ENEMY_BASE_SPEED, ENEMY_START_VY, randomizedTex,
 			listEnemyTexture,
 			bullet, health, dir));
 	}

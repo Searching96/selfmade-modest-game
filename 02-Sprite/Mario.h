@@ -1,6 +1,6 @@
 #pragma once
 
-#include "GameObject.h"
+#include "MoveableObject.h"
 
 #include "Animation.h"
 #include "Animations.h"
@@ -14,12 +14,12 @@ public:
 	void Update(DWORD dt) {}
 };
 
-class CMario : public CGameObject
+class CMario : public CMoveableObject
 {
 protected:
-	float vx;
+	int dir; // -1: left, 1: right
 public:
-	CMario(float x, float y, float vx);
+	CMario(float x, float y, float baseSpeed);
 	void Update(DWORD dt);
 	void Render();
 };

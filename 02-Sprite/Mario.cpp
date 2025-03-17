@@ -1,13 +1,32 @@
 #include "Game.h"
 #include "Mario.h"
 
-CMario::CMario(float x, float y, float vx):CGameObject(x, y)
+CMario::CMario(float x, float y, float baseSpeed) : CMoveableObject(x, y, baseSpeed)
 {
-	this->vx = vx;
-};
+	this->vx = baseSpeed;
+	this->vy = 0;
+}
 
 void CMario::Update(DWORD dt)
 {
+	if (this->vx > 0)
+		dir = 1;
+	else if (this->vx < 0)
+		dir = -1;
+
+	if (GetAsyncKeyState('A') & 0x8000) // Move left
+	{
+		vx = -baseSpeed;
+	}
+	else if (GetAsyncKeyState('D') & 0x8000) // Move right
+	{
+		vx = baseSpeed;
+	}
+	else // Idling
+	{
+		vx = 0;
+	}
+
 	x += vx*dt;
 
 	int BackBufferWidth = CGame::GetInstance()->GetBackBufferWidth();
@@ -30,11 +49,17 @@ void CMario::Update(DWORD dt)
 
 void CMario::Render()
 {
-	LPANIMATION ani;
+	LPANIMATION ani = NULL;
 
 	//[RED FLAG][TODO]: Student needs to think about how to associate this animation/asset to Mario!!
-	if (vx>0) ani = CAnimations::GetInstance()->Get(500);
-	else ani = CAnimations::GetInstance()->Get(501);
+	if (vx > 0) 
+		ani = CAnimations::GetInstance()->Get(500);
+	else if (vx < 0) 
+		ani = CAnimations::GetInstance()->Get(501);
+	else if (vx == 0 && dir == 1) 
+		ani = CAnimations::GetInstance()->Get(502);
+	else if (vx == 0 && dir == -1) 
+		ani = CAnimations::GetInstance()->Get(503);
 
 	ani->Render(x, y);
 }

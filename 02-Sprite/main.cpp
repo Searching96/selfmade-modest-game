@@ -51,12 +51,12 @@
 CMario *mario;
 #define MARIO_START_X 10.0f
 #define MARIO_START_Y 130.0f
-#define MARIO_START_VX 0.1f
+#define MARIO_BASE_SPEED 0.1f
 
 CEnemy* enemy;
 #define ENEMY_START_X 10.0f
 #define ENEMY_START_Y 150.0f
-#define ENEMY_START_VX 0.1f
+#define ENEMY_BASE_SPEED 0.1f
 
 CBrick *brick;
 
@@ -104,9 +104,14 @@ void LoadResources()
 	sprites->Add(10012, 155, 154, 171, 181, texMario);
 	sprites->Add(10013, 125, 154, 141, 181, texMario);
 
+	sprites->Add(10021, 245, 153, 260, 181, texMario);
+
+	sprites->Add(10031, 185, 153, 200, 181, texMario);
+
 	CAnimations * animations = CAnimations::GetInstance();
 	LPANIMATION ani;
 
+	// mario moving left
 	ani = new CAnimation(100);
 	ani->Add(10001);
 	ani->Add(10002);
@@ -114,13 +119,22 @@ void LoadResources()
 	animations->Add(500, ani);
 
 
-
+	// mario moving right
 	ani = new CAnimation(100);
 	ani->Add(10011);
 	ani->Add(10012);
 	ani->Add(10013);
 	animations->Add(501, ani);
 
+	// mario idling left
+	ani = new CAnimation(100);
+	ani->Add(10021);
+	animations->Add(502, ani);
+
+	// mario idling right
+	ani = new CAnimation(100);
+	ani->Add(10031);
+	animations->Add(503, ani);
 
 
 	LPTEXTURE texMisc = textures->Get(ID_TEX_MISC);
@@ -155,8 +169,8 @@ void LoadResources()
 	ani->Add(30004);
 	animations->Add(521, ani);
 
-	mario = new CMario(MARIO_START_X, MARIO_START_Y, MARIO_START_VX);
-	enemy = new CEnemy(ENEMY_START_X, ENEMY_START_Y, ENEMY_START_VX);
+	mario = new CMario(MARIO_START_X, MARIO_START_Y, MARIO_BASE_SPEED);
+	enemy = new CEnemy(ENEMY_START_X, ENEMY_START_Y, ENEMY_BASE_SPEED);
 	brick = new CBrick(100.0f, 100.0f);
 
 }

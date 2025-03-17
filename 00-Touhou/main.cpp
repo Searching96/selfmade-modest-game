@@ -55,7 +55,7 @@ CEnemy* enemy2;
 #define ENEMY1_START_Y 20.0f
 #define ENEMY2_START_X 20.0f
 #define ENEMY2_START_Y 40.0f
-#define ENEMY_START_VX 0.1f
+#define ENEMY_BASE_SPEED 0.1f
 #define ENEMY_START_VY 0.1f
 
 LPTEXTURE texPlayer = NULL;
@@ -92,9 +92,9 @@ void LoadResources()
 	// player_bullet = new CBullet(0, 0, 0, BULLET_START_VY, texBullet);
 	player = new CPlayer(PLAYER_START_X, PLAYER_START_Y, PLAYER_START_VX, PLAYER_START_VY, texPlayer,
 		0, 0, 0, BULLET_START_VY, texPlayerBullet);
-	enemy1 = new CEnemy(ENEMY1_START_X, ENEMY1_START_Y, ENEMY_START_VX, ENEMY_START_VY, texEnemy,
+	enemy1 = new CEnemy(ENEMY1_START_X, ENEMY1_START_Y, ENEMY_BASE_SPEED, ENEMY_START_VY, texEnemy,
 		0, 0, 0, -BULLET_START_VY, texEnemyBullet);
-	enemy2 = new CEnemy(ENEMY2_START_X, ENEMY2_START_Y, ENEMY_START_VX, ENEMY_START_VY, texEnemy,
+	enemy2 = new CEnemy(ENEMY2_START_X, ENEMY2_START_Y, ENEMY_BASE_SPEED, ENEMY_START_VY, texEnemy,
 		0, 0, 0, -BULLET_START_VY, texEnemyBullet);
 
 	objects.push_back(player);
