@@ -1,6 +1,6 @@
 #include "Sprite.h"
 
-CSprite::CSprite(int id, int left, int top, int right, int bottom, LPTEXTURE tex)
+CSprite::CSprite(int id, int left, int top, int right, int bottom, LPTEXTURE tex, float x0, float y0)
 {
 	this->id = id;
 	this->left = left;
@@ -8,6 +8,8 @@ CSprite::CSprite(int id, int left, int top, int right, int bottom, LPTEXTURE tex
 	this->right = right;
 	this->bottom = bottom;
 	this->texture = tex;
+	this->x0 = x0;
+	this->y0 = y0;
 
 	// Set the sprite’s shader resource view
 	sprite.pTexture = tex->getShaderResourceView();
@@ -32,7 +34,7 @@ void CSprite::Draw(float x, float y)
 	CGame* g = CGame::GetInstance();
 
 	D3DXMATRIX matTranslation;
-	D3DXMatrixTranslation(&matTranslation, x, (g->GetBackBufferHeight() - y), 0.1f);
+	D3DXMatrixTranslation(&matTranslation, x + x0, (g->GetBackBufferHeight() - (y + y0)), 0.1f);
 	this->sprite.matWorld = (this->matScaling * matTranslation);
 
 	g->GetSpriteHandler()->DrawSpritesImmediate(&sprite, 1, 0, 0);

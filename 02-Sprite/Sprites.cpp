@@ -10,9 +10,9 @@ CSprites *CSprites::GetInstance()
 	return __instance;
 }
 
-void CSprites::Add(int id, int left, int top, int right, int bottom, LPTEXTURE tex)
+void CSprites::Add(int id, int left, int top, int right, int bottom, LPTEXTURE tex, float x0, float y0)
 {
-	LPSPRITE s = new CSprite(id, left, top, right, bottom, tex);
+	LPSPRITE s = new CSprite(id, left, top, right, bottom, tex, x0, y0);
 	sprites[id] = s;
 }
 
