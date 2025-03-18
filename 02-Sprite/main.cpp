@@ -27,6 +27,7 @@
 
 #include "Mario.h"
 #include "Enemy.h"
+#include "Door.h"
 
 
 #define WINDOW_CLASS_NAME L"SampleWindow"
@@ -60,6 +61,7 @@ CEnemy* enemy;
 
 CBrick *brick;
 
+CDoor* door;
 
 
 LRESULT CALLBACK WinProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
@@ -169,10 +171,35 @@ void LoadResources()
 	ani->Add({ 30004 });
 	animations->Add(521, ani);
 
+	// add door sprites from texMisc
+	// closed door
+	sprites->Add(40001, 282, 99, 297, 114, texMisc, 0, -16); // upper part
+	sprites->Add(40002, 282, 117, 297, 132, texMisc);
+
+	// one third opened door
+	sprites->Add(40003, 285, 135, 297, 150, texMisc, 0, -16); // upper part
+	sprites->Add(40004, 285, 153, 297, 168, texMisc);
+
+	// two third opened door
+	sprites->Add(40005, 285, 171, 297, 186, texMisc, 0, -16); // upper part
+	sprites->Add(40006, 285, 189, 297, 204, texMisc);
+
+	// fully opened door
+	sprites->Add(40007, 285, 207, 297, 222, texMisc, 0, -16); // upper part
+	sprites->Add(40008, 285, 225, 297, 240, texMisc);
+
+	ani = new CAnimation(100);
+	ani->Add({ 40001, 40002 });
+	ani->Add({ 40003, 40004 });
+	ani->Add({ 40005, 40006 });
+	ani->Add({ 40007, 40008 }, 1000);
+
+	animations->Add(530, ani);
+
 	mario = new CMario(MARIO_START_X, MARIO_START_Y, MARIO_BASE_SPEED);
 	enemy = new CEnemy(ENEMY_START_X, ENEMY_START_Y, ENEMY_BASE_SPEED);
 	brick = new CBrick(100.0f, 100.0f);
-
+	door = new CDoor(120.0f, 136.0f);
 }
 
 /*
@@ -208,6 +235,7 @@ void Render()
 		brick->Render();
 		mario->Render();
 		enemy->Render();
+		door->Render();
 
 		// Uncomment this line to see how to draw a porttion of a texture  
 		//g->Draw(10, 10, texMisc, 300, 117, 316, 133);
