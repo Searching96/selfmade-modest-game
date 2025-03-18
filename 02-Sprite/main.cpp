@@ -219,8 +219,10 @@ void LoadResources()
 */
 void Update(DWORD dt)
 {
-	mario->Update(dt);
-	enemy->Update(dt);
+	for (int i = 0; i < objects.size(); i++)
+	{
+		objects[i]->Update(dt);
+	}
 }
 
 void Render()

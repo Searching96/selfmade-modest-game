@@ -66,6 +66,14 @@ void CMario::Render()
 
 void CMario::CheckDoorCollision(CDoor* door)
 {
+	// Check if 1200ms have passed since the door was last opened
+	ULONGLONG now = GetTickCount64();
+	if (door->GetIsOpened() && (now - door->GetLastOpenTime() < 1200))
+	{
+		// If the door is open and 1200ms have not passed, do not check for collision
+		return;
+	}
+
 	float doorX = door->GetX();
 	float doorY = door->GetY();
 	DebugOutTitle(L"Mario Position: (%f, %f) | Door Position: (%f, %f)", x, y, doorX, doorY);
