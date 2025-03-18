@@ -61,8 +61,10 @@ CEnemy* enemy;
 
 CBrick *brick;
 
-CDoor* door;
+// this external var is not a good practice and will be change later
+extern CDoor* door = NULL; // we must assign door to a value, ìf not, there will be error
 
+vector<CGameObject*> objects;
 
 LRESULT CALLBACK WinProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 {
@@ -188,18 +190,27 @@ void LoadResources()
 	sprites->Add(40007, 285, 207, 297, 222, texMisc, 0, -16); // upper part
 	sprites->Add(40008, 285, 225, 297, 240, texMisc);
 
+	// closed door ani
 	ani = new CAnimation(100);
 	ani->Add({ 40001, 40002 });
+	animations->Add(530, ani);
+	
+	// opening door ani
+	ani = new CAnimation(100);
 	ani->Add({ 40003, 40004 });
 	ani->Add({ 40005, 40006 });
 	ani->Add({ 40007, 40008 }, 1000);
-
-	animations->Add(530, ani);
+	animations->Add(531, ani);
 
 	mario = new CMario(MARIO_START_X, MARIO_START_Y, MARIO_BASE_SPEED);
 	enemy = new CEnemy(ENEMY_START_X, ENEMY_START_Y, ENEMY_BASE_SPEED);
 	brick = new CBrick(100.0f, 100.0f);
 	door = new CDoor(120.0f, 136.0f);
+
+	objects.push_back(mario);
+	objects.push_back(enemy);
+	objects.push_back(brick);
+	objects.push_back(door);
 }
 
 /*
@@ -232,10 +243,10 @@ void Render()
 		FLOAT NewBlendFactor[4] = { 0,0,0,0 };
 		pD3DDevice->OMSetBlendState(g->GetAlphaBlending(), NewBlendFactor, 0xffffffff);
 
-		brick->Render();
-		mario->Render();
-		enemy->Render();
-		door->Render();
+		for (int i = 0; i < objects.size(); i++)
+		{
+			objects[i]->Render();
+		}
 
 		// Uncomment this line to see how to draw a porttion of a texture  
 		//g->Draw(10, 10, texMisc, 300, 117, 316, 133);

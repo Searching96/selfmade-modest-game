@@ -42,9 +42,9 @@ void CMario::Update(DWORD dt)
 		{
 			x = (float)(BackBufferWidth - MARIO_WIDTH);
 		}
-
-
 	}
+
+	CheckDoorCollision(door);
 }
 
 void CMario::Render()
@@ -62,6 +62,18 @@ void CMario::Render()
 		ani = CAnimations::GetInstance()->Get(503);
 
 	ani->Render(x, y);
+}
+
+void CMario::CheckDoorCollision(CDoor* door)
+{
+	float doorX = door->GetX();
+	float doorY = door->GetY();
+	DebugOutTitle(L"Mario Position: (%f, %f) | Door Position: (%f, %f)", x, y, doorX, doorY);
+	if (x >= doorX && x <= doorX + 16 && y >= doorY - 6 && y <= doorY + 22)
+	{
+		DebugOutTitle(L"Collision Detected! Mario Position: (%f, %f) | Door Position: (%f, %f)", x, y, doorX, doorY);
+		door->SetIsOpened(true);
+	}
 }
 
 void CBrick::Render() {

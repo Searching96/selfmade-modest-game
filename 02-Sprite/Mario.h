@@ -4,8 +4,12 @@
 
 #include "Animation.h"
 #include "Animations.h"
+#include "Door.h"
+#include "debug.h"
 
 #define MARIO_WIDTH 14
+
+extern CDoor* door;
 
 class CBrick : public CGameObject {
 public: 
@@ -22,6 +26,7 @@ public:
 	CMario(float x, float y, float baseSpeed);
 	void Update(DWORD dt);
 	void Render();
+	void CheckDoorCollision(CDoor* door);
 };
 
 
