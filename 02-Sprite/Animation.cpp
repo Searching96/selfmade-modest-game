@@ -1,12 +1,16 @@
 #include "Animation.h"
 
-void CAnimation::Add(int spriteId, DWORD time)
+void CAnimation::Add(vector<int> spriteIds, DWORD time)
 {
 	int t = time;
 	if (time == 0) t = this->defaultTime;
 
-	LPSPRITE sprite = CSprites::GetInstance()->Get(spriteId);
-	LPANIMATION_FRAME frame = new CAnimationFrame(sprite, t);
+	vector<LPSPRITE> sprites;
+	for (int i = 0; i < spriteIds.size(); i++)
+	{
+		sprites.push_back(CSprites::GetInstance()->Get(spriteIds[i]));
+	}
+	LPANIMATION_FRAME frame = new CAnimationFrame(sprites, t);
 	frames.push_back(frame);
 }
 
@@ -31,6 +35,10 @@ void CAnimation::Render(float x, float y)
 
 	}
 
-	frames[currentFrame]->GetSprite()->Draw(x, y);
+	vector<LPSPRITE> sprites = frames[currentFrame]->GetSprites();
+	for (int i = 0; i < sprites.size(); i++)
+	{
+		sprites[i]->Draw(x, y);
+	}
 }
 
