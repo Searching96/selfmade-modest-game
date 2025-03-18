@@ -113,27 +113,27 @@ void LoadResources()
 
 	// mario moving left
 	ani = new CAnimation(100);
-	ani->Add(10001);
-	ani->Add(10002);
-	ani->Add(10003);
+	ani->Add({ 10001 });
+	ani->Add({ 10002 });
+	ani->Add({ 10003 });
 	animations->Add(500, ani);
 
 
 	// mario moving right
 	ani = new CAnimation(100);
-	ani->Add(10011);
-	ani->Add(10012);
-	ani->Add(10013);
+	ani->Add({ 10011 });
+	ani->Add({ 10012 });
+	ani->Add({ 10013 });
 	animations->Add(501, ani);
 
 	// mario idling left
 	ani = new CAnimation(100);
-	ani->Add(10021);
+	ani->Add({ 10021 });
 	animations->Add(502, ani);
 
 	// mario idling right
 	ani = new CAnimation(100);
-	ani->Add(10031);
+	ani->Add({ 10031 });
 	animations->Add(503, ani);
 
 
@@ -144,10 +144,10 @@ void LoadResources()
 	sprites->Add(20004, 354, 135, 371, 150, texMisc);
 
 	ani = new CAnimation(100);
-	ani->Add(20001,1000);
-	ani->Add(20002);
-	ani->Add(20003);
-	ani->Add(20004);
+	ani->Add({ 20001 }, 1000);
+	ani->Add({ 20002 });
+	ani->Add({ 20003 });
+	ani->Add({ 20004 });
 	animations->Add(510, ani);
 	
 	
@@ -156,8 +156,8 @@ void LoadResources()
 	sprites->Add(30002, 28, 129, 45, 157, texEnemy);
 	
 	ani = new CAnimation(100);
-	ani->Add(30001);
-	ani->Add(30002);
+	ani->Add({ 30001 });
+	ani->Add({ 30002 });
 	animations->Add(520, ani);
 	
 	LPTEXTURE texEnemyReversed = textures->Get(ID_TEX_ENEMY_REVERSED);
@@ -165,8 +165,8 @@ void LoadResources()
 	sprites->Add(30004, 434, 129, 451, 157, texEnemyReversed);
 
 	ani = new CAnimation(100);
-	ani->Add(30003);
-	ani->Add(30004);
+	ani->Add({ 30003 });
+	ani->Add({ 30004 });
 	animations->Add(521, ani);
 
 	mario = new CMario(MARIO_START_X, MARIO_START_Y, MARIO_BASE_SPEED);
