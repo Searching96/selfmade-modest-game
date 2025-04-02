@@ -155,6 +155,78 @@ void LoadAssetsMario()
 	sprites->Add(ID_SPRITE_MARIO_SMALL_JUMP_RUN_LEFT + 1, 65, 40, 65 + 15, 40 + 15, texMario);
 	sprites->Add(ID_SPRITE_MARIO_SMALL_JUMP_RUN_RIGHT + 1, 365, 40, 365 + 15, 40 + 15, texMario);
 
+	// INVIN IDLE
+	sprites->Add(ID_SPRITE_MARIO_INVIN_BIG_IDLE_RIGHT + 1, 245, 1084, 261, 1112, texMario);
+	sprites->Add(ID_SPRITE_MARIO_INVIN_BIG_IDLE_LEFT + 1, 185, 1084, 201, 1112, texMario);
+
+	// INVIN WALKING LEFT
+	sprites->Add(ID_SPRITE_MARIO_INVIN_BIG_WALKING_RIGHT + 2, 275, 1084, 290, 1112, texMario);
+	sprites->Add(ID_SPRITE_MARIO_INVIN_BIG_WALKING_RIGHT + 3, 304, 1084, 321, 1112, texMario);
+
+	// INVIN WALKING RIGHT
+	sprites->Add(ID_SPRITE_MARIO_INVIN_BIG_WALKING_LEFT + 2, 155, 1084, 170, 1112, texMario);
+	sprites->Add(ID_SPRITE_MARIO_INVIN_BIG_WALKING_LEFT + 3, 125, 1084, 140, 1112, texMario);
+
+	// INVIN RUNNING RIGHT
+	sprites->Add(ID_SPRITE_MARIO_INVIN_BIG_RUNNING_RIGHT + 1, 334, 1084, 355, 1112, texMario);
+	sprites->Add(ID_SPRITE_MARIO_INVIN_BIG_RUNNING_RIGHT + 2, 334, 1084, 355, 1112, texMario);
+	sprites->Add(ID_SPRITE_MARIO_INVIN_BIG_RUNNING_RIGHT + 3, 392, 1084, 413, 1112, texMario);
+
+	// INVIN RUNNING LEFT
+	sprites->Add(ID_SPRITE_MARIO_INVIN_BIG_RUNNING_LEFT + 1, 91, 1084, 112, 1112, texMario);
+	sprites->Add(ID_SPRITE_MARIO_INVIN_BIG_RUNNING_LEFT + 2, 65, 1084, 86, 1112, texMario);
+	sprites->Add(ID_SPRITE_MARIO_INVIN_BIG_RUNNING_LEFT + 3, 34, 1084, 55, 1112, texMario);
+
+	// INVIN JUMP WALK RIGHT & LEFT
+	sprites->Add(ID_SPRITE_MARIO_INVIN_BIG_JUMP_WALK_RIGHT + 1, 395, 1204, 412, 1232, texMario);
+	sprites->Add(ID_SPRITE_MARIO_INVIN_BIG_JUMP_WALK_LEFT + 1, 35, 1204, 52, 1232, texMario);
+
+	// INVIN JUMP RUN RIGHT & LEFT
+	sprites->Add(ID_SPRITE_MARIO_INVIN_BIG_JUMP_RUN_RIGHT + 1, 394, 1104, 413, 1132, texMario);
+	sprites->Add(ID_SPRITE_MARIO_INVIN_BIG_JUMP_RUN_LEFT + 1, 35, 1104, 52, 1132, texMario);
+
+	// INVIN SIT RIGHT/LEFT
+	sprites->Add(ID_SPRITE_MARIO_INVIN_BIG_SIT_RIGHT + 1, 426, 1148, 441, 1165, texMario);
+	sprites->Add(ID_SPRITE_MARIO_INVIN_BIG_SIT_LEFT + 1, 5, 1148, 20, 1165, texMario);
+
+	// INVIN BRACING RIGHT/LEFT
+	sprites->Add(ID_SPRITE_MARIO_INVIN_BIG_BRACE_RIGHT + 1, 425, 1084, 442, 1112, texMario);
+	sprites->Add(ID_SPRITE_MARIO_INVIN_BIG_BRACE_LEFT + 1, 5, 1084, 22, 1112, texMario);
+
+	// INVIN SMALL IDLE
+	sprites->Add(ID_SPRITE_MARIO_INVIN_SMALL_IDLE_RIGHT + 1, 243, 634, 264, 662, texMario);
+	sprites->Add(ID_SPRITE_MARIO_INVIN_SMALL_IDLE_LEFT + 1, 183, 634, 204, 662, texMario);
+
+	// INVIN SMALL WALKING LEFT
+	sprites->Add(ID_SPRITE_MARIO_INVIN_SMALL_WALKING_RIGHT + 2, 273, 634, 294, 662, texMario);
+	sprites->Add(ID_SPRITE_MARIO_INVIN_SMALL_WALKING_RIGHT + 3, 303, 634, 324, 662, texMario);
+
+	// INVIN SMALL WALKING RIGHT
+	sprites->Add(ID_SPRITE_MARIO_INVIN_SMALL_WALKING_LEFT + 2, 153, 634, 174, 662, texMario);
+	sprites->Add(ID_SPRITE_MARIO_INVIN_SMALL_WALKING_LEFT + 3, 123, 634, 144, 662, texMario);
+
+	// INVIN SMALL RUNNING RIGHT
+	sprites->Add(ID_SPRITE_MARIO_INVIN_SMALL_RUNNING_RIGHT + 1, 273, 634, 288, 662, texMario);
+	sprites->Add(ID_SPRITE_MARIO_INVIN_SMALL_RUNNING_RIGHT + 2, 303, 634, 318, 662, texMario);
+	sprites->Add(ID_SPRITE_MARIO_INVIN_SMALL_RUNNING_RIGHT + 3, 333, 634, 348, 662, texMario);
+
+	// INVIN SMALL RUNNING LEFT
+	sprites->Add(ID_SPRITE_MARIO_INVIN_SMALL_RUNNING_LEFT + 1, 153, 634, 168, 662, texMario);
+	sprites->Add(ID_SPRITE_MARIO_INVIN_SMALL_RUNNING_LEFT + 2, 123, 634, 138, 662, texMario);
+	sprites->Add(ID_SPRITE_MARIO_INVIN_SMALL_RUNNING_LEFT + 3, 93, 634, 108, 662, texMario);
+
+	// INVIN SMALL BRACE LEFT/RIGHT
+	sprites->Add(ID_SPRITE_MARIO_INVIN_SMALL_BRACE_LEFT + 1, 3, 634, 16, 662, texMario);
+	sprites->Add(ID_SPRITE_MARIO_INVIN_SMALL_BRACE_RIGHT + 1, 423, 634, 436, 662, texMario);
+
+	// INVIN SMALL JUMP WALK RIGHT & LEFT
+	sprites->Add(ID_SPRITE_MARIO_INVIN_SMALL_JUMP_WALK_RIGHT + 1, 393, 754, 408, 772, texMario);
+	sprites->Add(ID_SPRITE_MARIO_INVIN_SMALL_JUMP_WALK_LEFT + 1, 33, 754, 48, 772, texMario);
+
+	// INVIN SMALL JUMP RUN RIGHT & LEFT
+	sprites->Add(ID_SPRITE_MARIO_INVIN_SMALL_JUMP_RUN_RIGHT + 1, 63, 714, 78, 732, texMario);
+	sprites->Add(ID_SPRITE_MARIO_INVIN_SMALL_JUMP_RUN_LEFT + 1, 363, 714, 378, 732, texMario);
+
 	LPANIMATION ani;
 
 	ani = new CAnimation(100);
@@ -284,6 +356,129 @@ void LoadAssetsMario()
 	ani = new CAnimation(100);
 	ani->Add(ID_SPRITE_MARIO_SMALL_JUMP_RUN_RIGHT + 1);
 	animations->Add(ID_ANI_MARIO_SMALL_JUMP_RUN_RIGHT, ani);
+
+	//
+	// INVIN MARIO 
+	//
+	ani = new CAnimation(100);
+	ani->Add(ID_SPRITE_MARIO_INVIN_BIG_IDLE_RIGHT + 1);
+	animations->Add(ID_ANI_MARIO_INVIN_IDLE_RIGHT, ani);
+
+	ani = new CAnimation(100);
+	ani->Add(ID_SPRITE_MARIO_INVIN_BIG_IDLE_LEFT + 1);
+	animations->Add(ID_ANI_MARIO_INVIN_IDLE_LEFT, ani);
+
+	ani = new CAnimation(100);
+	ani->Add(ID_SPRITE_MARIO_INVIN_BIG_IDLE_RIGHT + 1);
+	ani->Add(ID_SPRITE_MARIO_INVIN_BIG_WALKING_RIGHT + 2);
+	ani->Add(ID_SPRITE_MARIO_INVIN_BIG_WALKING_RIGHT + 3);
+	animations->Add(ID_ANI_MARIO_INVIN_WALKING_RIGHT, ani);
+
+	ani = new CAnimation(100);
+	ani->Add(ID_SPRITE_MARIO_INVIN_BIG_IDLE_LEFT + 1);
+	ani->Add(ID_SPRITE_MARIO_INVIN_BIG_WALKING_LEFT + 2);
+	ani->Add(ID_SPRITE_MARIO_INVIN_BIG_WALKING_LEFT + 3);
+	animations->Add(ID_ANI_MARIO_INVIN_WALKING_LEFT, ani);
+
+	ani = new CAnimation(50);
+	ani->Add(ID_SPRITE_MARIO_INVIN_BIG_RUNNING_RIGHT + 1);
+	ani->Add(ID_SPRITE_MARIO_INVIN_BIG_RUNNING_RIGHT + 2);
+	ani->Add(ID_SPRITE_MARIO_INVIN_BIG_RUNNING_RIGHT + 3);
+	animations->Add(ID_ANI_MARIO_INVIN_RUNNING_RIGHT, ani);
+
+	ani = new CAnimation(50);
+	ani->Add(ID_SPRITE_MARIO_INVIN_BIG_RUNNING_LEFT + 1);
+	ani->Add(ID_SPRITE_MARIO_INVIN_BIG_RUNNING_LEFT + 2);
+	ani->Add(ID_SPRITE_MARIO_INVIN_BIG_RUNNING_LEFT + 3);
+	animations->Add(ID_ANI_MARIO_INVIN_RUNNING_LEFT, ani);
+
+	ani = new CAnimation(100);
+	ani->Add(ID_SPRITE_MARIO_INVIN_BIG_JUMP_WALK_RIGHT + 1);
+	animations->Add(ID_ANI_MARIO_INVIN_JUMP_WALK_RIGHT, ani);
+
+	ani = new CAnimation(100);
+	ani->Add(ID_SPRITE_MARIO_INVIN_BIG_JUMP_WALK_LEFT + 1);
+	animations->Add(ID_ANI_MARIO_INVIN_JUMP_WALK_LEFT, ani);
+
+	ani = new CAnimation(100);
+	ani->Add(ID_SPRITE_MARIO_INVIN_BIG_JUMP_RUN_RIGHT + 1);
+	animations->Add(ID_ANI_MARIO_INVIN_JUMP_RUN_RIGHT, ani);
+
+	ani = new CAnimation(100);
+	ani->Add(ID_SPRITE_MARIO_INVIN_BIG_JUMP_RUN_LEFT + 1);
+	animations->Add(ID_ANI_MARIO_INVIN_JUMP_RUN_LEFT, ani);
+
+	ani = new CAnimation(100);
+	ani->Add(ID_SPRITE_MARIO_INVIN_BIG_SIT_RIGHT + 1);
+	animations->Add(ID_ANI_MARIO_INVIN_SIT_RIGHT, ani);
+
+	ani = new CAnimation(100);
+	ani->Add(ID_SPRITE_MARIO_INVIN_BIG_SIT_LEFT + 1);
+	animations->Add(ID_ANI_MARIO_INVIN_SIT_LEFT, ani);
+
+	ani = new CAnimation(100);
+	ani->Add(ID_SPRITE_MARIO_INVIN_BIG_BRACE_RIGHT + 1);
+	animations->Add(ID_ANI_MARIO_INVIN_BRACE_RIGHT, ani);
+
+	ani = new CAnimation(100);
+	ani->Add(ID_SPRITE_MARIO_INVIN_BIG_BRACE_LEFT + 1);
+	animations->Add(ID_ANI_MARIO_INVIN_BRACE_LEFT, ani);
+
+	ani = new CAnimation(100);
+	ani->Add(ID_SPRITE_MARIO_INVIN_SMALL_IDLE_RIGHT + 1);
+	animations->Add(ID_ANI_MARIO_INVIN_SMALL_IDLE_RIGHT, ani);
+
+	ani = new CAnimation(100);
+	ani->Add(ID_SPRITE_MARIO_INVIN_SMALL_IDLE_RIGHT + 1);
+	ani->Add(ID_SPRITE_MARIO_INVIN_SMALL_WALKING_RIGHT + 2);
+	ani->Add(ID_SPRITE_MARIO_INVIN_SMALL_WALKING_RIGHT + 3);
+	animations->Add(ID_ANI_MARIO_INVIN_SMALL_WALKING_RIGHT, ani);
+
+	ani = new CAnimation(100);
+	ani->Add(ID_SPRITE_MARIO_INVIN_SMALL_IDLE_LEFT + 1);
+	animations->Add(ID_ANI_MARIO_INVIN_SMALL_IDLE_LEFT, ani);
+
+	ani = new CAnimation(100);
+	ani->Add(ID_SPRITE_MARIO_INVIN_SMALL_IDLE_LEFT + 1);
+	ani->Add(ID_SPRITE_MARIO_INVIN_SMALL_WALKING_LEFT + 2);
+	ani->Add(ID_SPRITE_MARIO_INVIN_SMALL_WALKING_LEFT + 3);
+	animations->Add(ID_ANI_MARIO_INVIN_SMALL_WALKING_LEFT, ani);
+
+	ani = new CAnimation(50);
+	ani->Add(ID_SPRITE_MARIO_INVIN_SMALL_RUNNING_RIGHT + 1);
+	ani->Add(ID_SPRITE_MARIO_INVIN_SMALL_RUNNING_RIGHT + 2);
+	ani->Add(ID_SPRITE_MARIO_INVIN_SMALL_RUNNING_RIGHT + 3);
+	animations->Add(ID_ANI_MARIO_INVIN_SMALL_RUNNING_RIGHT, ani);
+
+	ani = new CAnimation(50);
+	ani->Add(ID_SPRITE_MARIO_INVIN_SMALL_RUNNING_LEFT + 1);
+	ani->Add(ID_SPRITE_MARIO_INVIN_SMALL_RUNNING_LEFT + 2);
+	ani->Add(ID_SPRITE_MARIO_INVIN_SMALL_RUNNING_LEFT + 3);
+	animations->Add(ID_ANI_MARIO_INVIN_SMALL_RUNNING_LEFT, ani);
+
+	ani = new CAnimation(100);
+	ani->Add(ID_SPRITE_MARIO_INVIN_SMALL_BRACE_LEFT + 1);
+	animations->Add(ID_ANI_MARIO_INVIN_SMALL_BRACE_LEFT, ani);
+
+	ani = new CAnimation(100);
+	ani->Add(ID_SPRITE_MARIO_INVIN_SMALL_BRACE_RIGHT + 1);
+	animations->Add(ID_ANI_MARIO_INVIN_SMALL_BRACE_RIGHT, ani);
+
+	ani = new CAnimation(100);
+	ani->Add(ID_SPRITE_MARIO_INVIN_SMALL_JUMP_WALK_RIGHT + 1);
+	animations->Add(ID_ANI_MARIO_INVIN_SMALL_JUMP_WALK_RIGHT, ani);
+
+	ani = new CAnimation(100);
+	ani->Add(ID_SPRITE_MARIO_INVIN_SMALL_JUMP_WALK_LEFT + 1);
+	animations->Add(ID_ANI_MARIO_INVIN_SMALL_JUMP_WALK_LEFT, ani);
+
+	ani = new CAnimation(100);
+	ani->Add(ID_SPRITE_MARIO_INVIN_SMALL_JUMP_RUN_LEFT + 1);
+	animations->Add(ID_ANI_MARIO_INVIN_SMALL_JUMP_RUN_LEFT, ani);
+
+	ani = new CAnimation(100);
+	ani->Add(ID_SPRITE_MARIO_INVIN_SMALL_JUMP_RUN_RIGHT + 1);
+	animations->Add(ID_ANI_MARIO_INVIN_SMALL_JUMP_RUN_RIGHT, ani);
 }
 
 void LoadAssetsGoomba()
@@ -309,6 +504,7 @@ void LoadAssetsGoomba()
 	animations->Add(ID_ANI_GOOMBA_DIE, ani);
 
 }
+
 void LoadAssetsBrick()
 {
 	CTextures* textures = CTextures::GetInstance();
@@ -322,6 +518,7 @@ void LoadAssetsBrick()
 	ani->Add(ID_SPRITE_BRICK + 1);
 	animations->Add(ID_ANI_BRICK, ani);
 }
+
 void LoadAssetsCoin()
 {
 	CTextures* textures = CTextures::GetInstance();
