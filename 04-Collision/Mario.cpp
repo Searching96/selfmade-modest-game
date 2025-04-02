@@ -6,6 +6,7 @@
 
 #include "Goomba.h"
 #include "Coin.h"
+#include "Star.h"
 
 #include "Collision.h"
 
@@ -21,6 +22,12 @@ void CMario::Update(DWORD dt, vector<LPGAMEOBJECT> *coObjects)
 	{
 		untouchable_start = 0;
 		untouchable = 0;
+	}
+
+	if (GetTickCount64() - invincible_start > MARIO_INVINCIBLE_TIME)
+	{
+		invincible_start = 0;
+		invincible = 0;
 	}
 
 	CCollision::GetInstance()->Process(this, dt, coObjects);
@@ -50,14 +57,19 @@ void CMario::OnCollisionWith(LPCOLLISIONEVENT e)
 		OnCollisionWithGoomba(e);
 	else if (dynamic_cast<CCoin*>(e->obj))
 		OnCollisionWithCoin(e);
+	else if (dynamic_cast<CStar*>(e->obj))
+		OnCollisionWithStar(e);
 }
 
 void CMario::OnCollisionWithGoomba(LPCOLLISIONEVENT e)
 {
 	CGoomba* goomba = dynamic_cast<CGoomba*>(e->obj);
 
-	// jump on top >> kill Goomba and deflect a bit 
-	if (e->ny < 0)
+	if (invincible == 1)
+	{
+		goomba->SetState(GOOMBA_STATE_DIE);
+	}
+	else if (e->ny < 0) // jump on top >> kill Goomba and deflect a bit 
 	{
 		if (goomba->GetState() != GOOMBA_STATE_DIE)
 		{
@@ -89,6 +101,12 @@ void CMario::OnCollisionWithCoin(LPCOLLISIONEVENT e)
 {
 	e->obj->Delete();
 	coin++;
+}
+
+void CMario::OnCollisionWithStar(LPCOLLISIONEVENT e)
+{
+	e->obj->Delete();
+	StartInvicible();
 }
 
 //

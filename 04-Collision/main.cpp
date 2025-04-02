@@ -35,6 +35,7 @@
 #include "Brick.h"
 #include "Goomba.h"
 #include "Coin.h"
+#include "Star.h"
 #include "Platform.h"
 
 #include "SampleKeyEventHandler.h"
@@ -57,8 +58,9 @@
 #define TEXTURE_PATH_ENEMY TEXTURES_DIR "\\enemies_transparent.png"
 #define TEXTURE_PATH_BBOX TEXTURES_DIR "\\bbox.png"
 
-CGame *game;
-CMario *mario;
+CGame* game;
+CMario* mario;
+CStar* star;
 
 list<LPGAMEOBJECT> objects;
 
@@ -339,6 +341,21 @@ void LoadAssetsCoin()
 	animations->Add(ID_ANI_COIN, ani);
 }
 
+void LoadAssetsStar()
+{
+	CTextures* textures = CTextures::GetInstance();
+	CSprites* sprites = CSprites::GetInstance();
+	CAnimations* animations = CAnimations::GetInstance();
+
+	LPTEXTURE texMisc = textures->Get(ID_TEX_MISC);
+
+	sprites->Add(ID_SPRITE_STAR + 1, 354, 207, 369, 222, texMisc);
+
+	LPANIMATION ani = new CAnimation(100);
+	ani->Add(ID_SPRITE_STAR + 1);
+	animations->Add(ID_ANI_STAR, ani);
+}
+
 void LoadAssetsOther()
 {
 	CTextures* textures = CTextures::GetInstance();
@@ -371,6 +388,7 @@ void LoadResources()
 	LoadAssetsBrick();
 	LoadAssetsCoin();
 	LoadAssetsOther();
+	LoadAssetsStar();
 }
 
 void ClearScene()
@@ -463,6 +481,9 @@ void Reload()
 		CCoin* c = new CCoin(COIN_X + i * (COIN_WIDTH * 2), GROUND_Y - 96.0f);
 		objects.push_back(c);
 	}
+
+	star = new CStar(200.0f, GROUND_Y - 56.0f);
+	objects.push_back(star);
 }
 
 bool IsGameObjectDeleted(const LPGAMEOBJECT& o) { return o == NULL; }

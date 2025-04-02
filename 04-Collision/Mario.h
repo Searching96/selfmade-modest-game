@@ -78,6 +78,14 @@
 #define ID_ANI_MARIO_SMALL_JUMP_RUN_RIGHT 1600
 #define ID_ANI_MARIO_SMALL_JUMP_RUN_LEFT 1601
 
+// INVICIBLE MARIO
+#define ID_ANI_MARIO_INVIN_IDLE_RIGHT 2400
+#define ID_ANI_MARIO_INVIN_IDLE_LEFT 2401
+
+#define ID_ANI_MARIO_INVIN_WALKING_RIGHT 2500
+#define ID_ANI_MARIO_INVIN_WALKING_LEFT 2501
+
+
 #pragma endregion
 
 #define GROUND_Y 160.0f
@@ -101,6 +109,8 @@
 
 #define MARIO_UNTOUCHABLE_TIME 2500
 
+#define MARIO_INVINCIBLE_TIME 5000
+
 class CMario : public CGameObject
 {
 	BOOLEAN isSitting;
@@ -111,12 +121,15 @@ class CMario : public CGameObject
 	int level; 
 	int untouchable; 
 	ULONGLONG untouchable_start;
+	int invincible;
+	ULONGLONG invincible_start;
 	BOOLEAN isOnPlatform;
 	int coin; 
 
 	void OnCollisionWithGoomba(LPCOLLISIONEVENT e);
 	void OnCollisionWithCoin(LPCOLLISIONEVENT e);
 	void OnCollisionWithPortal(LPCOLLISIONEVENT e);
+	void OnCollisionWithStar(LPCOLLISIONEVENT e);
 
 
 	int GetAniIdBig();
@@ -133,6 +146,8 @@ public:
 		level = MARIO_LEVEL_BIG;
 		untouchable = 0;
 		untouchable_start = -1;
+		invincible = 0;
+		invincible_start = -1;
 		isOnPlatform = false;
 		coin = 0;
 	}
@@ -152,6 +167,7 @@ public:
 
 	void SetLevel(int l);
 	void StartUntouchable() { untouchable = 1; untouchable_start = GetTickCount64(); }
+	void StartInvicible() { invincible = 1; invincible_start = GetTickCount64(); }
 
 	void GetBoundingBox(float& left, float& top, float& right, float& bottom);
 };
