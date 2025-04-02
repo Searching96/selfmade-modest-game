@@ -142,7 +142,7 @@
 
 #define MARIO_UNTOUCHABLE_TIME 2500
 
-#define MARIO_INVINCIBLE_TIME 5000
+#define MARIO_INVINCIBLE_TIME 20000
 
 class CMario : public CGameObject
 {
@@ -167,6 +167,8 @@ class CMario : public CGameObject
 
 	int GetAniIdBig();
 	int GetAniIdSmall();
+	int GetAniIdInvinBig();
+	int GetAniIdInvinSmall();
 
 public:
 	CMario(float x, float y) : CGameObject(x, y)

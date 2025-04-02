@@ -170,6 +170,64 @@ int CMario::GetAniIdSmall()
 	return aniId;
 }
 
+int CMario::GetAniIdInvinSmall()
+{
+	int aniId = -1;
+	if (!isOnPlatform)
+	{
+		if (abs(ax) == MARIO_ACCEL_RUN_X)
+		{
+			if (nx >= 0)
+				aniId = ID_ANI_MARIO_INVIN_SMALL_JUMP_RUN_RIGHT;
+			else
+				aniId = ID_ANI_MARIO_INVIN_SMALL_JUMP_RUN_LEFT;
+		}
+		else
+		{
+			if (nx >= 0)
+				aniId = ID_ANI_MARIO_INVIN_SMALL_JUMP_WALK_RIGHT;
+			else
+				aniId = ID_ANI_MARIO_INVIN_SMALL_JUMP_WALK_LEFT;
+		}
+	}
+	else
+		if (isSitting)
+		{
+			if (nx > 0)
+				aniId = ID_ANI_MARIO_INVIN_SIT_RIGHT;
+			else
+				aniId = ID_ANI_MARIO_INVIN_SIT_LEFT;
+		}
+		else
+			if (vx == 0)
+			{
+				if (nx > 0) aniId = ID_ANI_MARIO_INVIN_SMALL_IDLE_RIGHT;
+				else aniId = ID_ANI_MARIO_INVIN_SMALL_IDLE_LEFT;
+			}
+			else if (vx > 0)
+			{
+				if (ax < 0)
+					aniId = ID_ANI_MARIO_INVIN_SMALL_BRACE_RIGHT;
+				else if (ax == MARIO_ACCEL_RUN_X)
+					aniId = ID_ANI_MARIO_INVIN_SMALL_RUNNING_RIGHT;
+				else if (ax == MARIO_ACCEL_WALK_X)
+					aniId = ID_ANI_MARIO_INVIN_SMALL_WALKING_RIGHT;
+			}
+			else // vx < 0
+			{
+				if (ax > 0)
+					aniId = ID_ANI_MARIO_INVIN_SMALL_BRACE_LEFT;
+				else if (ax == -MARIO_ACCEL_RUN_X)
+					aniId = ID_ANI_MARIO_INVIN_SMALL_RUNNING_LEFT;
+				else if (ax == -MARIO_ACCEL_WALK_X)
+					aniId = ID_ANI_MARIO_INVIN_SMALL_WALKING_LEFT;
+			}
+
+	if (aniId == -1) aniId = ID_ANI_MARIO_INVIN_SMALL_IDLE_RIGHT;
+
+	return aniId;
+}
+
 
 //
 // Get animdation ID for big Mario
@@ -232,6 +290,64 @@ int CMario::GetAniIdBig()
 	return aniId;
 }
 
+int CMario::GetAniIdInvinBig()
+{
+	int aniId = -1;
+	if (!isOnPlatform)
+	{
+		if (abs(ax) == MARIO_ACCEL_RUN_X)
+		{
+			if (nx >= 0)
+				aniId = ID_ANI_MARIO_INVIN_JUMP_RUN_RIGHT;
+			else
+				aniId = ID_ANI_MARIO_INVIN_JUMP_RUN_LEFT;
+		}
+		else
+		{
+			if (nx >= 0)
+				aniId = ID_ANI_MARIO_INVIN_JUMP_WALK_RIGHT;
+			else
+				aniId = ID_ANI_MARIO_INVIN_JUMP_WALK_LEFT;
+		}
+	}
+	else
+		if (isSitting)
+		{
+			if (nx > 0)
+				aniId = ID_ANI_MARIO_INVIN_SIT_RIGHT;
+			else
+				aniId = ID_ANI_MARIO_INVIN_SIT_LEFT;
+		}
+		else
+			if (vx == 0)
+			{
+				if (nx > 0) aniId = ID_ANI_MARIO_INVIN_IDLE_RIGHT;
+				else aniId = ID_ANI_MARIO_INVIN_IDLE_LEFT;
+			}
+			else if (vx > 0)
+			{
+				if (ax < 0)
+					aniId = ID_ANI_MARIO_INVIN_BRACE_RIGHT;
+				else if (ax == MARIO_ACCEL_RUN_X)
+					aniId = ID_ANI_MARIO_INVIN_RUNNING_RIGHT;
+				else if (ax == MARIO_ACCEL_WALK_X)
+					aniId = ID_ANI_MARIO_INVIN_WALKING_RIGHT;
+			}
+			else // vx < 0
+			{
+				if (ax > 0)
+					aniId = ID_ANI_MARIO_INVIN_BRACE_LEFT;
+				else if (ax == -MARIO_ACCEL_RUN_X)
+					aniId = ID_ANI_MARIO_INVIN_RUNNING_LEFT;
+				else if (ax == -MARIO_ACCEL_WALK_X)
+					aniId = ID_ANI_MARIO_INVIN_WALKING_LEFT;
+			}
+
+	if (aniId == -1) aniId = ID_ANI_MARIO_INVIN_IDLE_RIGHT;
+
+	return aniId;
+}
+
 void CMario::Render()
 {
 	CAnimations* animations = CAnimations::GetInstance();
@@ -239,10 +355,20 @@ void CMario::Render()
 
 	if (state == MARIO_STATE_DIE)
 		aniId = ID_ANI_MARIO_DIE;
-	else if (level == MARIO_LEVEL_BIG)
-		aniId = GetAniIdBig();
-	else if (level == MARIO_LEVEL_SMALL)
-		aniId = GetAniIdSmall();
+	else if (invincible == 1)
+	{
+		if (level == MARIO_LEVEL_BIG)
+			aniId = GetAniIdInvinBig();
+		else if (level == MARIO_LEVEL_SMALL)
+			aniId = GetAniIdInvinSmall();
+	}
+	else
+	{
+		if (level == MARIO_LEVEL_BIG)
+			aniId = GetAniIdBig();
+		else if (level == MARIO_LEVEL_SMALL)
+			aniId = GetAniIdSmall();
+	}
 
 	animations->Get(aniId)->Render(x, y);
 
