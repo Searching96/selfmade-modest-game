@@ -182,12 +182,12 @@ void LoadAssetsMario()
 	sprites->Add(ID_SPRITE_MARIO_INVIN_BIG_JUMP_WALK_LEFT + 1, 35, 1204, 52, 1232, texMario);
 
 	// INVIN JUMP RUN RIGHT & LEFT
-	sprites->Add(ID_SPRITE_MARIO_INVIN_BIG_JUMP_RUN_RIGHT + 1, 394, 1104, 413, 1132, texMario);
-	sprites->Add(ID_SPRITE_MARIO_INVIN_BIG_JUMP_RUN_LEFT + 1, 35, 1104, 52, 1132, texMario);
+	sprites->Add(ID_SPRITE_MARIO_INVIN_BIG_JUMP_RUN_RIGHT + 1, 394, 1124, 413, 1151, texMario);
+	sprites->Add(ID_SPRITE_MARIO_INVIN_BIG_JUMP_RUN_LEFT + 1, 33, 1124, 52, 1151, texMario);
 
 	// INVIN SIT RIGHT/LEFT
-	sprites->Add(ID_SPRITE_MARIO_INVIN_BIG_SIT_RIGHT + 1, 426, 1148, 441, 1165, texMario);
-	sprites->Add(ID_SPRITE_MARIO_INVIN_BIG_SIT_LEFT + 1, 5, 1148, 20, 1165, texMario);
+	sprites->Add(ID_SPRITE_MARIO_INVIN_BIG_SIT_RIGHT + 1, 425, 1170, 441, 1186, texMario);
+	sprites->Add(ID_SPRITE_MARIO_INVIN_BIG_SIT_LEFT + 1, 5, 1170, 21, 1186, texMario);
 
 	// INVIN BRACING RIGHT/LEFT
 	sprites->Add(ID_SPRITE_MARIO_INVIN_BIG_BRACE_RIGHT + 1, 425, 1084, 442, 1112, texMario);
@@ -679,7 +679,7 @@ void Reload()
 		objects.push_back(c);
 	}
 
-	star = new CStar(200.0f, GROUND_Y - 56.0f);
+	star = new CStar(200.0f, GROUND_Y - 80.0f);
 	objects.push_back(star);
 }
 

@@ -12,6 +12,8 @@
 
 void CMario::Update(DWORD dt, vector<LPGAMEOBJECT> *coObjects)
 {
+	DebugOutTitle(L"Mario Position: (%f, %f)", x, y);
+
 	vy += ay * dt;
 	vx += ax * dt;
 
@@ -228,7 +230,6 @@ int CMario::GetAniIdInvinSmall()
 	return aniId;
 }
 
-
 //
 // Get animdation ID for big Mario
 //
@@ -374,7 +375,7 @@ void CMario::Render()
 
 	//RenderBoundingBox();
 	
-	DebugOutTitle(L"Coins: %d", coin);
+	//DebugOutTitle(L"Coins: %d", coin);
 }
 
 void CMario::SetState(int state)
