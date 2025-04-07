@@ -7,6 +7,7 @@
 #include "Goomba.h"
 #include "Coin.h"
 #include "Star.h"
+#include "QuestionBlock.h"
 
 #include "Collision.h"
 
@@ -61,6 +62,9 @@ void CMario::OnCollisionWith(LPCOLLISIONEVENT e)
 		OnCollisionWithCoin(e);
 	else if (dynamic_cast<CStar*>(e->obj))
 		OnCollisionWithStar(e);
+	else if (dynamic_cast<CQuestionBlock*>(e->obj))
+		OnCollisionWithQuestionBlock(e);
+
 }
 
 void CMario::OnCollisionWithGoomba(LPCOLLISIONEVENT e)
@@ -109,6 +113,24 @@ void CMario::OnCollisionWithStar(LPCOLLISIONEVENT e)
 {
 	e->obj->Delete();
 	StartInvicible();
+}
+
+void CMario::OnCollisionWithQuestionBlock(LPCOLLISIONEVENT e)
+{
+	CQuestionBlock* questionBlock = dynamic_cast<CQuestionBlock*>(e->obj);
+
+	if (questionBlock && e->ny > 0 && questionBlock->GetState() == QUESTION_BLOCK_STATE_NOT_HIT)
+	{
+		questionBlock->SetState(QUESTION_BLOCK_STATE_HIT);
+
+		// Spawn a star when Mario hits the question block from below
+		CGame* game = CGame::GetInstance();
+		float qbX, qbY;
+		questionBlock->GetPosition(qbX, qbY);
+
+		LPGAMEOBJECT star = new CStar(qbX, qbY - STAR_BBOX_HEIGHT / 2 - 8);
+		objects.push_back(star);
+	}
 }
 
 //

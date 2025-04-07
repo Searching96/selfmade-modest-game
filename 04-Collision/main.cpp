@@ -37,6 +37,7 @@
 #include "Coin.h"
 #include "Star.h"
 #include "Platform.h"
+#include "QuestionBlock.h"
 
 #include "SampleKeyEventHandler.h"
 
@@ -60,9 +61,8 @@
 
 CGame* game;
 CMario* mario;
-CStar* star;
 
-list<LPGAMEOBJECT> objects;
+list<LPGAMEOBJECT> objects = list<LPGAMEOBJECT>();
 
 CSampleKeyHandler * keyHandler; 
 
@@ -565,6 +565,37 @@ void LoadAssetsOther()
 
 }
 
+void LoadAssetsQuestionBlock()
+{
+	CTextures* textures = CTextures::GetInstance();
+	CSprites* sprites = CSprites::GetInstance();
+	CAnimations* animations = CAnimations::GetInstance();
+
+	LPTEXTURE texMisc = textures->Get(ID_TEX_MISC);
+
+	// idling question mark 
+	sprites->Add(ID_SPRITE_QUESTION_BLOCK + 1, 300, 117, 316, 133, texMisc);
+	// moving question mark
+	sprites->Add(ID_SPRITE_QUESTION_BLOCK + 2, 318, 117, 334, 133, texMisc);
+	sprites->Add(ID_SPRITE_QUESTION_BLOCK + 3, 336, 117, 352, 133, texMisc);
+	sprites->Add(ID_SPRITE_QUESTION_BLOCK + 4, 354, 117, 370, 133, texMisc);
+
+	
+	// hit
+	sprites->Add(ID_SPRITE_QUESTION_BLOCK_HIT, 372, 117, 388, 133, texMisc);
+
+	LPANIMATION ani = new CAnimation(100);
+	ani->Add(ID_SPRITE_QUESTION_BLOCK + 1, 2000);
+	ani->Add(ID_SPRITE_QUESTION_BLOCK + 2);
+	ani->Add(ID_SPRITE_QUESTION_BLOCK + 3);
+	ani->Add(ID_SPRITE_QUESTION_BLOCK + 4);
+	animations->Add(ID_ANI_QUESTION_BLOCK, ani);
+
+	ani = new CAnimation(100);
+	ani->Add(ID_SPRITE_QUESTION_BLOCK_HIT);
+	animations->Add(ID_ANI_QUESTION_BLOCK_HIT, ani);
+}
+
 /*
 	Load all game resources
 	In this example: load textures, sprites, animations and mario object
@@ -586,6 +617,7 @@ void LoadResources()
 	LoadAssetsCoin();
 	LoadAssetsOther();
 	LoadAssetsStar();
+	LoadAssetsQuestionBlock();
 }
 
 void ClearScene()
@@ -673,14 +705,20 @@ void Reload()
 	}
 
 	// COINS 
-	for (int i = 0; i < 10; i++)
+		for (int i = 0; i < 10; i++)
 	{
 		CCoin* c = new CCoin(COIN_X + i * (COIN_WIDTH * 2), GROUND_Y - 96.0f);
 		objects.push_back(c);
+		CQuestionBlock* qb = new CQuestionBlock(COIN_X + i * (COIN_WIDTH * 2), GROUND_Y - 96.0f);
+		objects.push_back(qb);
 	}
 
-	star = new CStar(200.0f, GROUND_Y - 80.0f);
-	objects.push_back(star);
+	/*CStar* star = new CStar(200.0f, GROUND_Y - 80.0f);
+	objects.push_back(star);*/
+
+	// Question blocks
+	//CQuestionBlock* qb = new CQuestionBlock(200.0f, GROUND_Y - 96.0f);
+	//objects.push_back(qb);
 }
 
 bool IsGameObjectDeleted(const LPGAMEOBJECT& o) { return o == NULL; }

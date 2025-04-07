@@ -3,6 +3,13 @@
 #include "Star.h"
 #include "Game.h"
 
+CQuestionBlock::CQuestionBlock(float x, float y) : CGameObject(x, y)
+{
+	this->x = x;
+	this->y = y;
+	SetState(QUESTION_BLOCK_STATE_NOT_HIT);
+}
+
 void CQuestionBlock::Render()
 {
 	int aniId = ID_ANI_QUESTION_BLOCK;
@@ -42,6 +49,6 @@ void CQuestionBlock::OnCollisionWith(LPCOLLISIONEVENT e)
 
 		CGame* game = CGame::GetInstance();
 		LPGAMEOBJECT star = new CStar(x, y - STAR_BBOX_HEIGHT / 2);
-		//add game object
+		objects.push_back(star);
 	}
 }
