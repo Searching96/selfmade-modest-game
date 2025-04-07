@@ -27,8 +27,9 @@ void CLengthyObject::RenderBoundingBox()
 	CGame::GetInstance()->GetCamPos(cx, cy);
 
 	float xx = x - this->cellWidth / 2 + rect.right / 2;
+	float yy = y + this->cellHeight / 2 - rect.bottom / 2;
 
-	CGame::GetInstance()->Draw(xx - cx, y - cy, bbox, nullptr, BBOX_ALPHA, rect.right - 1, rect.bottom - 1);
+	CGame::GetInstance()->Draw(xx - cx, yy - cy, bbox, nullptr, BBOX_ALPHA, rect.right - 1, rect.bottom - 1);
 }
 
 void CLengthyObject::Render()
@@ -38,22 +39,22 @@ void CLengthyObject::Render()
 	float yy = y;
 	CSprites* s = CSprites::GetInstance();
 
-	s->Get(this->spriteIdBegin)->Draw(xx, y);
+	s->Get(this->spriteIdBegin)->Draw(xx, yy);
 	if (axis == 0)
 		xx += this->cellWidth;
 	else if (axis == 1)
-		yy += this->cellHeight;
+		yy -= this->cellHeight;
 
 	for (int i = 1; i < this->length - 1; i++)
 	{
-		s->Get(this->spriteIdMiddle)->Draw(xx, y);
+		s->Get(this->spriteIdMiddle)->Draw(xx, yy);
 		if (axis == 0)
 			xx += this->cellWidth;
 		else if (axis == 1)
-			yy += this->cellHeight;
+			yy -= this->cellHeight;
 	}
 	if (length > 1)
-		s->Get(this->spriteIdEnd)->Draw(xx, y);
+		s->Get(this->spriteIdEnd)->Draw(xx, yy);
 
 	RenderBoundingBox();
 }
@@ -72,9 +73,9 @@ void CLengthyObject::GetBoundingBox(float& l, float& t, float& r, float& b)
 	{
 		float cellHeight_div_2 = this->cellHeight / 2;
 		l = x - this->cellWidth / 2;
-		t = y - cellHeight_div_2;
+		b = y + cellHeight_div_2;
 		r = l + this->cellWidth;
-		b = t + this->cellHeight * this->length;
+		t = b - this->cellHeight * this->length;
 	}
 	else
 	{
@@ -85,6 +86,5 @@ void CLengthyObject::GetBoundingBox(float& l, float& t, float& r, float& b)
 
 int CLengthyObject::IsDirectionColliable(float nx, float ny)
 {
-	if (nx == 0 && ny == -1) return 1;
-	else return 0;
+	return 1; // every direction is collidable
 }

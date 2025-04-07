@@ -7,7 +7,8 @@ assets/brick.txt
 #
 [OBJECTS]
 # type	x	y	extra_settings per object type
-# type: 0 = Mario , 1 = Brick, 2 = Goomba, 3 = Koopas
+# type: 0 = Mario , 1 = Brick, 2 = Goomba, 3 = Koopas, 
+# 4 = Coin, 5 = Platform, 6 = Lengthy-Object
 # See OBJECT_TYPE constants in AssetIDs.h
 
 # MARIO
@@ -39,6 +40,10 @@ assets/brick.txt
 #Platform
 5 	100	180	16	15	32	51000	52000	53000
 5	140	140	16	15	26	51000	52000	53000
+
+#Brick-Wall (Lengthy-Object)
+6	160	144	16	16	4	20001	20001	20001	1
+6	160	144	16	16	4	20001	20001	20001	0
 
 #Portal 
 50	200	160	216	180	1
