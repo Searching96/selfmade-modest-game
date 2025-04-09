@@ -4,6 +4,8 @@
 
 #include <string>
 
+using namespace std;
+
 class CSprite
 {
 	string id;				// Sprite ID in the sprite database

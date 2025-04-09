@@ -8,13 +8,13 @@ protected:
 	int length;				// Unit: cell 
 	float cellWidth;
 	float cellHeight;
-	int spriteIdBegin, spriteIdMiddle, spriteIdEnd;
+	string spriteIdBegin, spriteIdMiddle, spriteIdEnd;
 	int axis;				// 0: horizontal, 1: vertical
 
 public:
 	CLengthyObject(float x, float y,
 		float cell_width, float cell_height, int length,
-		int sprite_id_begin, int sprite_id_middle, int sprite_id_end,
+		string sprite_id_begin, string sprite_id_middle, string sprite_id_end,
 		int axis) :CGameObject(x, y)
 	{
 		this->length = length;

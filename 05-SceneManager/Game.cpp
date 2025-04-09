@@ -537,7 +537,7 @@ void CGame::_ParseSection_TEXTURES(string line)
 
 	if (tokens.size() < 2) return;
 
-	int texID = atoi(tokens[0].c_str());
+	string texID = tokens[0].c_str();
 	wstring path = ToWSTR(tokens[1]);
 
 	CTextures::GetInstance()->Add(texID, path.c_str());

@@ -1,5 +1,6 @@
 #pragma once
 #include <unordered_map>
+#include <string>
 #include <d3dx10.h>
 
 #include "Texture.h"
@@ -13,12 +14,12 @@ class CTextures
 {
 	static CTextures* __instance;
 
-	unordered_map<int, LPTEXTURE> textures;
+	unordered_map<string, LPTEXTURE> textures;
 
 public:
 	CTextures();
-	void Add(int id, LPCWSTR filePath);
-	LPTEXTURE Get(unsigned int i);
+	void Add(string id, LPCWSTR filePath);
+	LPTEXTURE Get(string id);
 	void Clear();
 
 	static CTextures* GetInstance();

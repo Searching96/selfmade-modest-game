@@ -14,8 +14,8 @@
 #define GOOMBA_STATE_WALKING 100
 #define GOOMBA_STATE_DIE 200
 
-#define ID_ANI_GOOMBA_WALKING 5000
-#define ID_ANI_GOOMBA_DIE 5001
+#define ID_ANI_GOOMBA_WALKING "an_g_w"
+#define ID_ANI_GOOMBA_DIE "an_g_d"
 
 class CGoomba : public CGameObject
 {
