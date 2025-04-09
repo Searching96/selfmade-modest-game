@@ -2,80 +2,80 @@
 [SPRITES]
 #####  BIG ###############
 #IDLE
-s_m_b_i_r	246	154	259	181	t
-s_m_b_i_l	186	154	199	181	t
+s_m_b_i_r	246	154	259	181	mar
+s_m_b_i_l	186	154	199	181	mar
 
 #WALKING RIGHT
-s_m_b_w_r1	275	154	290	181	t
-s_m_b_w_r2	304	154	321	181	t
+s_m_b_w_r1	275	154	290	181	mar
+s_m_b_w_r2	304	154	321	181	mar
 
 #WALKING LEFT
-s_m_b_w_l1	155	154	170	181	t
-s_m_b_w_l2	125	154	140	181	t
+s_m_b_w_l1	155	154	170	181	mar
+s_m_b_w_l2	125	154	140	181	mar
 
 #RUNNING RIGHT
-s_m_b_r_r1	334	154	355	181	t
-s_m_b_r_r2	334	154	355	181	t
-s_m_b_r_r3	392	154	413	181	t
+s_m_b_r_r1	334	154	355	181	mar
+s_m_b_r_r2	334	154	355	181	mar
+s_m_b_r_r3	392	154	413	181	mar
 
 #RUNNING LEFT
-s_m_b_r_l1	91	154	112	181	t
-s_m_b_r_l2	65	154	86	181	t
-s_m_b_r_l3	34	154	55	181	t
+s_m_b_r_l1	91	154	112	181	mar
+s_m_b_r_l2	65	154	86	181	mar
+s_m_b_r_l3	34	154	55	181	mar
 
 #JUMP WALK RIGHT & LEFT
-s_m_b_j_w_r	395	275	412	302	t
-s_m_b_j_w_l	35	275	52	302	t
+s_m_b_j_w_r	395	275	412	302	mar
+s_m_b_j_w_l	35	275	52	302	mar
 
 #JUMP RUN RIGHT & LEFT
-s_m_b_j_r_r	394	195	413	222	t
-s_m_b_j_r_l	35	195	52	222	t
+s_m_b_j_r_r	394	195	413	222	mar
+s_m_b_j_r_l	35	195	52	222	mar
 
 #SIT RIGHT & LEFT 
-s_m_b_s_r	426	239	441	256	t
-s_m_b_s_l	5	239	20	256	t
+s_m_b_s_r	426	239	441	256	mar
+s_m_b_s_l	5	239	20	256	mar
 
 #BRACE RIGHT & LEFT 
-s_m_b_b_r	425	154	442	181	t
-s_m_b_b_l	5	154	22	181	t
+s_m_b_b_r	425	154	442	181	mar
+s_m_b_b_l	5	154	22	181	mar
 
 #DIE
-s_m_d	215	120	234	137	t
+s_m_d	215	120	234	137	mar
 
 ############ SMALL ################
  #IDLE
-s_m_s_i_r	247	0	260	15	t
-s_m_s_i_l	187	0	200	15	t
+s_m_s_i_r	247	0	260	15	mar
+s_m_s_i_l	187	0	200	15	mar
 
 #WALK RIGHT
-s_m_s_w_r1	275	0	292	15	t
-s_m_s_w_r2	306	0	321	15	t
+s_m_s_w_r1	275	0	292	15	mar
+s_m_s_w_r2	306	0	321	15	mar
 
 #WALK LEFT
-s_m_s_w_l1	155	0	170	15	t
-s_m_s_w_l2	125	0	140	15	t
+s_m_s_w_l1	155	0	170	15	mar
+s_m_s_w_l2	125	0	140	15	mar
 
 #RUN RIGHT
-s_m_s_r_r1	275	0	290	15	t
-s_m_s_r_r2	306	0	321	15	t
-s_m_s_r_r3	335	0	350	15	t
+s_m_s_r_r1	275	0	290	15	mar
+s_m_s_r_r2	306	0	321	15	mar
+s_m_s_r_r3	335	0	350	15	mar
 
 #RUN LEFT
-s_m_s_r_l1	155	0	170	15	t
-s_m_s_r_l2	125	0	140	15	t
-s_m_s_r_l3	95	0	110	15	t
+s_m_s_r_l1	155	0	170	15	mar
+s_m_s_r_l2	125	0	140	15	mar
+s_m_s_r_l3	95	0	110	15	mar
 
 #BRACE RIGHT & LEFT
-s_m_s_b_r	6	0	19	15	t
-s_m_s_b_l	426	0	439	15	t
+s_m_s_b_r	6	0	19	15	mar
+s_m_s_b_l	426	0	439	15	mar
 
 #JUMP WALK RIGHT & LEFT 
-s_m_s_j_w_r	35	80	50	95	t
-s_m_s_j_w_l	395	80	410	95	t
+s_m_s_j_w_r	35	80	50	95	mar
+s_m_s_j_w_l	395	80	410	95	mar
 
 #JUMP RUN RIGHT & LEFT 
-s_m_s_j_r_r	65	40	80	55	t
-s_m_s_j_r_l	365	40	380	55	t
+s_m_s_j_r_r	65	40	80	55	mar
+s_m_s_j_r_l	365	40	380	55	mar
 
 # ani_id	sprite1_id	time1	sprite2_id	time2	...
 [ANIMATIONS]
@@ -83,8 +83,8 @@ a_m_b_i_r	s_m_b_i_r	100
 a_m_b_i_l	s_m_b_i_l	100
 
 #WALKING RIGHT & LEFT 
-a_m_b_w_r	s_m_b_w_r1	100	s_m_b_w_r2	100	s_m_b_w_r3	100
-a_m_b_w_l	s_m_b_w_l1	100	s_m_b_w_l2	100	s_m_b_w_l3	100
+a_m_b_w_r	s_m_b_i_r	100	s_m_b_w_r1	100	s_m_b_w_r2	100
+a_m_b_w_l	s_m_b_i_l	100	s_m_b_w_l1	100	s_m_b_w_l2	100
 
 #RUNNING RIGHT & LEFT
 a_m_b_r_r	s_m_b_r_r1	50	s_m_b_r_r2	50	s_m_b_r_r3	50

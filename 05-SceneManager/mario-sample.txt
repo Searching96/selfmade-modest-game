@@ -13,7 +13,7 @@ height	240
 
 # id	file 
 [TEXTURES]
-b	textures\bbox.png
-t	textures\mario.png
-e	textures\enemies.png
-m	textures\misc.png
+bbo	textures\bbox.png
+mar	textures\mario.png
+ene	textures\enemies.png
+mis	textures\misc.png
