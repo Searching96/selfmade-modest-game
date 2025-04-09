@@ -39,17 +39,17 @@ void CPlayScene::_ParseSection_SPRITES(string line)
 
 	if (tokens.size() < 6) return; // skip invalid lines
 
-	string ID = tokens[0].c_str();
+	string ID = tokens[0];
 	int l = atoi(tokens[1].c_str());
 	int t = atoi(tokens[2].c_str());
 	int r = atoi(tokens[3].c_str());
 	int b = atoi(tokens[4].c_str());
-	string texID = tokens[5].c_str();
+	string texID = tokens[5];
 
 	LPTEXTURE tex = CTextures::GetInstance()->Get(texID);
 	if (tex == NULL)
 	{
-		DebugOut(L"[ERROR] Texture ID %d not found!\n", texID);
+		DebugOut(L"[ERROR] Texture ID %s not found!\n", texID);
 		return; 
 	}
 
@@ -73,7 +73,7 @@ void CPlayScene::_ParseSection_ANIMATIONS(string line)
 
 	if (tokens.size() < 3) return; // skip invalid lines - an animation must at least has 1 frame and 1 frame time
 
-	//DebugOut(L"--> %s\n",ToWSTR(line).c_str());
+	DebugOut(L"--> %s\n",ToWSTR(line).c_str());
 
 	LPANIMATION ani = new CAnimation();
 

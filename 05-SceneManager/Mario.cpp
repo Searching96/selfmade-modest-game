@@ -104,9 +104,9 @@ void CMario::OnCollisionWithPortal(LPCOLLISIONEVENT e)
 //
 // Get animation ID for small Mario
 //
-int CMario::GetAniIdSmall()
+string CMario::GetAniIdSmall()
 {
-	int aniId = -1;
+	string aniId = "";
 	if (!isOnPlatform)
 	{
 		if (abs(ax) == MARIO_ACCEL_RUN_X)
@@ -157,7 +157,7 @@ int CMario::GetAniIdSmall()
 					aniId = ID_ANI_MARIO_SMALL_WALKING_LEFT;
 			}
 
-	if (aniId == -1) aniId = ID_ANI_MARIO_SMALL_IDLE_RIGHT;
+	if (aniId == "") aniId = ID_ANI_MARIO_SMALL_IDLE_RIGHT;
 
 	return aniId;
 }
@@ -166,9 +166,9 @@ int CMario::GetAniIdSmall()
 //
 // Get animdation ID for big Mario
 //
-int CMario::GetAniIdBig()
+string CMario::GetAniIdBig()
 {
-	int aniId = -1;
+	string aniId = "";
 	if (!isOnPlatform)
 	{
 		if (abs(ax) == MARIO_ACCEL_RUN_X)
@@ -219,7 +219,7 @@ int CMario::GetAniIdBig()
 					aniId = ID_ANI_MARIO_WALKING_LEFT;
 			}
 
-	if (aniId == -1) aniId = ID_ANI_MARIO_IDLE_RIGHT;
+	if (aniId == "") aniId = ID_ANI_MARIO_IDLE_RIGHT;
 
 	return aniId;
 }

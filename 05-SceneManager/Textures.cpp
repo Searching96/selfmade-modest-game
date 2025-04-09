@@ -26,7 +26,7 @@ LPTEXTURE CTextures::Get(string id)
 {
 	LPTEXTURE t = textures[id];
 	if (t == NULL)
-		DebugOut(L"[ERROR] Texture Id %d not found !\n", id);
+		DebugOut(L"[ERROR] Texture Id %s not found !\n", id);
 	
 	return t;
 }

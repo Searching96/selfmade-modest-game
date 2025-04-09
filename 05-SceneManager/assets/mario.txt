@@ -40,42 +40,42 @@ s_m_b_b_r	425	154	442	181	t
 s_m_b_b_l	5	154	22	181	t
 
 #DIE
-s_m_d	215	120	234	137	0
+s_m_d	215	120	234	137	t
 
 ############ SMALL ################
  #IDLE
-s_m_s_i_r	247	0	260	15	0
-s_m_s_i_l	187	0	200	15	0
+s_m_s_i_r	247	0	260	15	t
+s_m_s_i_l	187	0	200	15	t
 
 #WALK RIGHT
-s_m_s_w_r1	275	0	292	15	0
-s_m_s_w_r2	306	0	321	15	0
+s_m_s_w_r1	275	0	292	15	t
+s_m_s_w_r2	306	0	321	15	t
 
 #WALK LEFT
-s_m_s_w_l1	155	0	170	15	0
-s_m_s_w_l2	125	0	140	15	0
+s_m_s_w_l1	155	0	170	15	t
+s_m_s_w_l2	125	0	140	15	t
 
 #RUN RIGHT
-s_m_s_r_r1	275	0	290	15	0
-s_m_s_r_r2	306	0	321	15	0
-s_m_s_r_r3	335	0	350	15	0
+s_m_s_r_r1	275	0	290	15	t
+s_m_s_r_r2	306	0	321	15	t
+s_m_s_r_r3	335	0	350	15	t
 
 #RUN LEFT
-s_m_s_r_l1	155	0	170	15	0
-s_m_s_r_l2	125	0	140	15	0
-s_m_s_r_l3	95	0	110	15	0
+s_m_s_r_l1	155	0	170	15	t
+s_m_s_r_l2	125	0	140	15	t
+s_m_s_r_l3	95	0	110	15	t
 
 #BRACE RIGHT & LEFT
-s_m_s_b_r	6	0	19	15	0
-s_m_s_b_l	426	0	439	15	0
+s_m_s_b_r	6	0	19	15	t
+s_m_s_b_l	426	0	439	15	t
 
 #JUMP WALK RIGHT & LEFT 
-s_m_s_j_w_r	35	80	50	95	0
-s_m_s_j_w_l	395	80	410	95	0
+s_m_s_j_w_r	35	80	50	95	t
+s_m_s_j_w_l	395	80	410	95	t
 
 #JUMP RUN RIGHT & LEFT 
-s_m_s_j_r_r	65	40	80	55	0
-s_m_s_j_r_l	365	40	380	55	0
+s_m_s_j_r_r	65	40	80	55	t
+s_m_s_j_r_l	365	40	380	55	t
 
 # ani_id	sprite1_id	time1	sprite2_id	time2	...
 [ANIMATIONS]

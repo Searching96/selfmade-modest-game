@@ -36,47 +36,47 @@
 
 #pragma region ANIMATION_ID
 
-#define ID_ANI_MARIO_IDLE_RIGHT 400
-#define ID_ANI_MARIO_IDLE_LEFT 401
+#define ID_ANI_MARIO_IDLE_RIGHT "a_m_b_i_r"
+#define ID_ANI_MARIO_IDLE_LEFT "a_m_b_i_l"
 
-#define ID_ANI_MARIO_WALKING_RIGHT 500
-#define ID_ANI_MARIO_WALKING_LEFT 501
+#define ID_ANI_MARIO_WALKING_RIGHT "a_m_b_w_r"
+#define ID_ANI_MARIO_WALKING_LEFT "a_m_b_w_l"
 
-#define ID_ANI_MARIO_RUNNING_RIGHT 600
-#define ID_ANI_MARIO_RUNNING_LEFT 601
+#define ID_ANI_MARIO_RUNNING_RIGHT "a_m_b_r_r"
+#define ID_ANI_MARIO_RUNNING_LEFT "a_m_b_r_l"
 
-#define ID_ANI_MARIO_JUMP_WALK_RIGHT 700
-#define ID_ANI_MARIO_JUMP_WALK_LEFT 701
+#define ID_ANI_MARIO_JUMP_WALK_RIGHT "a_m_b_j_w_r"
+#define ID_ANI_MARIO_JUMP_WALK_LEFT "a_m_b_j_w_l"
 
-#define ID_ANI_MARIO_JUMP_RUN_RIGHT 800
-#define ID_ANI_MARIO_JUMP_RUN_LEFT 801
+#define ID_ANI_MARIO_JUMP_RUN_RIGHT "a_m_b_j_r_r"
+#define ID_ANI_MARIO_JUMP_RUN_LEFT "a_m_b_j_r_l"
 
-#define ID_ANI_MARIO_SIT_RIGHT 900
-#define ID_ANI_MARIO_SIT_LEFT 901
+#define ID_ANI_MARIO_SIT_RIGHT "a_m_b_s_r"
+#define ID_ANI_MARIO_SIT_LEFT "a_m_b_s_l"
 
-#define ID_ANI_MARIO_BRACE_RIGHT 1000
-#define ID_ANI_MARIO_BRACE_LEFT 1001
+#define ID_ANI_MARIO_BRACE_RIGHT "a_m_b_b_r"
+#define ID_ANI_MARIO_BRACE_LEFT "a_m_b_b_l"
 
-#define ID_ANI_MARIO_DIE 999
+#define ID_ANI_MARIO_DIE "a_m_d"
 
 // SMALL MARIO
-#define ID_ANI_MARIO_SMALL_IDLE_RIGHT 1100
-#define ID_ANI_MARIO_SMALL_IDLE_LEFT 1102
+#define ID_ANI_MARIO_SMALL_IDLE_RIGHT "a_m_s_i_r"
+#define ID_ANI_MARIO_SMALL_IDLE_LEFT "a_m_s_i_l"
 
-#define ID_ANI_MARIO_SMALL_WALKING_RIGHT 1200
-#define ID_ANI_MARIO_SMALL_WALKING_LEFT 1201
+#define ID_ANI_MARIO_SMALL_WALKING_RIGHT "a_m_s_w_r"
+#define ID_ANI_MARIO_SMALL_WALKING_LEFT "a_m_s_w_l"
 
-#define ID_ANI_MARIO_SMALL_RUNNING_RIGHT 1300
-#define ID_ANI_MARIO_SMALL_RUNNING_LEFT 1301
+#define ID_ANI_MARIO_SMALL_RUNNING_RIGHT "a_m_s_r_r"
+#define ID_ANI_MARIO_SMALL_RUNNING_LEFT "a_m_s_r_l"
 
-#define ID_ANI_MARIO_SMALL_BRACE_RIGHT 1400
-#define ID_ANI_MARIO_SMALL_BRACE_LEFT 1401
+#define ID_ANI_MARIO_SMALL_BRACE_RIGHT "a_m_s_b_r"
+#define ID_ANI_MARIO_SMALL_BRACE_LEFT "a_m_s_b_l"
 
-#define ID_ANI_MARIO_SMALL_JUMP_WALK_RIGHT 1500
-#define ID_ANI_MARIO_SMALL_JUMP_WALK_LEFT 1501
+#define ID_ANI_MARIO_SMALL_JUMP_WALK_RIGHT "a_m_s_j_w_r"
+#define ID_ANI_MARIO_SMALL_JUMP_WALK_LEFT "a_m_s_j_w_l"
 
-#define ID_ANI_MARIO_SMALL_JUMP_RUN_RIGHT 1600
-#define ID_ANI_MARIO_SMALL_JUMP_RUN_LEFT 1601
+#define ID_ANI_MARIO_SMALL_JUMP_RUN_RIGHT "a_m_s_j_r_r"
+#define ID_ANI_MARIO_SMALL_JUMP_RUN_LEFT "a_m_s_j_r_l"
 
 #pragma endregion
 
@@ -118,8 +118,8 @@ class CMario : public CGameObject
 	void OnCollisionWithCoin(LPCOLLISIONEVENT e);
 	void OnCollisionWithPortal(LPCOLLISIONEVENT e);
 
-	int GetAniIdBig();
-	int GetAniIdSmall();
+	string GetAniIdBig();
+	string GetAniIdSmall();
 
 public:
 	CMario(float x, float y) : CGameObject(x, y)
