@@ -100,9 +100,9 @@ void LoadResources()
 
 	// readline => id, left, top, right 
 
-	sprites->Add(10001, 246, 154, 259, 181, texMario);
-	sprites->Add(10002, 275, 154, 290, 181, texMario);
-	sprites->Add(10003, 304, 154, 321, 181, texMario);
+	sprites->Add(10001, 246, 154, 259, 181, texMario, 8, 8);
+	sprites->Add(10002, 275, 154, 290, 181, texMario, 8, 8);
+	sprites->Add(10003, 304, 154, 321, 181, texMario, 8, 8);
 
 	sprites->Add(10011, 186, 154, 200, 181, texMario);
 	sprites->Add(10012, 155, 154, 171, 181, texMario);
